@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <meta charset="utf-8">
+  <title>HELPUS</title>
+  
+  <img src="artwork/bob.png" id="bob_art" style="display:none;">
+  <img src="artwork/alice_key.png" id="alice_key_art" style="display:none;">
+  <img src="artwork/treasure.png" id="treasure_art" style="display:none">
+  
+  <style>
+  /* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+  
+  body{
+	background: #C0C0C0;
+  
+
+  }
+  
+  #progress-container{
+	background: #00205B;
+	height: 100px;
+  text-align: center;
+  border-bottom: 3px solid yellow;
+  }
+  
+  #left-column{
+  float: left;
+  width: 100px;
+  height: 100vh;
+  background: #00205B;
+  }
+  
+  #center-column{
+    float: left;
+    width: calc(100% - 200px);
+    height: 100vh;
+    background: #C0C0C0;
+  }
+  #right-column{
+	float: right;
+  width: 100px;
+  height: 100vh;
+  background: #00205B;
+  }
+  
+  #title{
+  margin:center;
+  display:block;
+	border: 3px solid #00205B;
+	
+  }
+  
+  #after{
+	content: "";
+	display: table;
+	clear: both;
+  }
+  #title{
+    color:yellow;
+  }
+  #subtitle{
+    color:yellow;
+  }
+  #tutorial{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    height: 356px;
+    width: 800px;
+    
+    border: 3px solid black;
+    }
+  #tutorial_left{
+    float:left;
+    width: 300px;
+    margin:10px;
+  }
+  #tutorial_right{
+    float:right;
+    margin-top:10px;
+    margin-right:10px;
+    border:0px;
+  }
+  #research{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    height: 356px;
+    width: 800px;
+    
+    border: 3px solid black;
+    }
+  #research_left{
+    float:left;
+    width: 300px;
+    margin:10px;
+  }
+  #research_right{
+    float:right;
+    margin-top:10px;
+    margin-bottom:auto;
+    margin-right:10px;
+    height: 330px;
+    border:0px;
+  }
+  #members{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 800px;
+    height:auto;
+    border: 3px solid black;
+    }
+  #members_left{
+    float:left;
+    margin-left:10px;
+    margin-top:40px;
+    width: 250px;
+    
+    border:0px;
+  }
+  #members_center{
+    float:left;
+    margin-left:10px;
+    margin-top:10px;
+    width: 250px;
+    
+    border:0px;
+  }
+  #members_right{
+    float:left;
+    margin-left:10px;
+    margin-top:40px;
+    margin-right:10px;
+    width: 250px;
+    border:0px;
+  }
+
+  </style>
+</head>
+
+
+<body>
+  <div id="progress-container">
+    <h1 id="title" >HELPUS</h1>
+    <h2 id="subtitle">How Entry Level Programmers Use Synchronization</h2>
+  </div>
+  
+  <div id ="left-column"></div>
+
+  <div id="center-column">
+    <div id="tutorial">
+      <div id="tutorial_left">
+        <h3 style="text-align:center">How to Play</h3>
+        <h4>1. Drag blocks to create a program.</h4>
+        <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Program should complete challenge.</h4>
+        <h4>2. Press run button to exectute program.</h4>
+        <h3 style="text-align:center">Scoring</h3>
+        <h4>1. Using less movement blocks gives the best score.</h4>
+        <h4>2. If you use more movement blocks than necessary, you can try again for a better score.</h4>
+        <h3 style="text-align:center">Requirements</h3>
+        <h4>1. Use Google Chrome.</h4>
+        <h4>2. Make window fullscreen.</h4>
+      </div>
+      <div id="tutorial_right">
+        <h3 style="text-align: center;">Example Round</h3>
+        <video src="artwork/HELPUS Demo.mp4" id="" height="300px" controls></video>
+      </div>
+    </div>
+    
+    <div id="enter_game">
+      <a href = "game.html">
+        <h1 style="text-align: center;">Start Game!</h1>
+      </a>
+    </div>
+    <div id="research">
+      <div id="research_left">
+        <h3 style="text-align:center">Research Info</h3>
+        <p>HELPUS is a visual programming language (VPL) that directly represents parallel programming models, such as threads and locks in C++. It is presented alongside a series of games that represent various parallel challenges faced in real-world applications. By working through the games using the VPL, novice programmers learn to recognize opportunities for adding parallelism in real-world applications.
+        </p>
+        <a href="writeups/Friedel_Research_Paper.pdf">
+          <h3 style="text-align:center">Fall Semester Paper</h3>
+        </a>
+      </div>
+    
+        <img src="artwork/poster.png" id = "research_right">
+    </div>
+
+    <div id="members">
+      <div id="members_left">
+        <h3> </h3>
+        <h4 style="text-align:center;">Professor Christian DeLozier</h4>
+        <p style="text-align:center;">Electrical and Computer Enginnering</p>
+        <p style="text-align:center;">Primary Research Advisor</p>
+        <p style="text-align:center;">delozier@usna.edu</p>
+      </div>
+      <div id="members_center">
+        <h3 style="text-align:center;">USNA Research Team</h3>
+        <h4 style="text-align:center;">LCDR James Shey, USN</h4>
+        <p style="text-align:center;">Electrical and Computer Engineering</p>
+        <p style="text-align:center;">Assistant Research Advisor</p>
+        <p style="text-align:center;">shey@usna.edu</p>
+      </div>
+      <div id="members_right">
+        <h4 style="text-align:center;">MIDN 1/C Matthew Friedel, USN</h4>
+        <p style="text-align:center;">m212010@usna.edu</p>
+      </div>
+    </div>
+  </div>
+  <div id="right-column"></div>
+  
+  <div id="after"></div>
+
+</body>
+
+</html>

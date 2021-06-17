@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <meta charset="utf-8">
+  <title>HELPUS</title>
+  <script src="blockly/blockly_compressed.js"></script>
+  <script src="blockly/blocks_compressed.js"></script>
+  <script src="blockly/javascript_compressed.js"></script>
+  <script src="blockly/msg/js/en.js"></script>
+
+  <img src="artwork/bob.png" id="bob_art" style="display:none;">
+  <img src="artwork/bob_key.png" id="bob_key_art" style="display:none;">
+  <img src="artwork/bob_sword.png" id="bob_sword_art" style="display:none;">
+  <img src="artwork/bob_gold.png" id="bob_gold_art" style="display:none;"> 
+  <img src="artwork/alice.png" id="alice_art" style="display:none;">
+  <img src="artwork/alice_key.png" id="alice_key_art" style="display:none;">
+  <img src="artwork/alice_gold.png" id="alice_gold_art" style="display:none;"> 
+  <img src="artwork/treasure.png" id="treasure_art" style="display:none">
+  <img src="artwork/treasure_closed.png" id="treasure_closed_art" style="display:none">
+  <img src="artwork/board.png" id="board_art" style="display:none">
+  <img src="artwork/bank_closed.png" id="bank_closed_art" style="display:none">  
+  <img src="artwork/bank_opened.png" id="bank_open_art" style="display:none">    
+  <img src="artwork/two_rooms.png" id="two_rooms_art" style="display:none">    
+  <img src="artwork/key.png" id="key_art" style="display:none;">
+  <img src="artwork/invisible.png" id="invisible_art" style="display:none;">
+  <img src="artwork/gold_6.png" id="gold_6_art" style="display:none;">
+  <img src="artwork/gold_5.png" id="gold_5_art" style="display:none;">
+  <img src="artwork/gold_4.png" id="gold_4_art" style="display:none;">
+  <img src="artwork/gold_3.png" id="gold_3_art" style="display:none;">
+  <img src="artwork/gold_2.png" id="gold_2_art" style="display:none;">
+  <img src="artwork/gold_1.png" id="gold_1_art" style="display:none;">
+  <img src="artwork/gold_0.png" id="gold_0_art" style="display:none;">
+  <img src="artwork/cart_6.png" id="cart_6_art" style="display:none;">
+  <img src="artwork/cart_5.png" id="cart_5_art" style="display:none;">
+  <img src="artwork/cart_4.png" id="cart_4_art" style="display:none;">
+  <img src="artwork/cart_3.png" id="cart_3_art" style="display:none;">
+  <img src="artwork/cart_2.png" id="cart_2_art" style="display:none;">
+  <img src="artwork/cart_1.png" id="cart_1_art" style="display:none;">
+  <img src="artwork/cart_0.png" id="cart_0_art" style="display:none;">
+  <img src="artwork/counter_gold.png" id="counter_gold_art" style="display:none;">
+  
+  <style>
+  /* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+  
+  body{
+	background: #C0C0C0;
+  }
+  
+  #progress-container{
+	background: #00205B;
+	height: 50px;
+  }
+  
+  #left-column{
+	float: left;
+  }
+  
+  #right-column{
+	float: left;
+  }
+  
+  #progress{
+	background: #00205B;
+	float: right;
+  }
+  
+   #score{
+	float: left;
+	}
+  
+  #instructions{
+	margin: 20px;
+	background: white;
+	border: 3px solid #00205B;
+	
+  }
+  
+  #canvas{
+	margin: 20px;
+	padding: 0;
+	border: 3px solid #00205B;
+  }
+  
+  #blocklyDiv{
+	border: 3px solid #00205B;
+	margin-left: 20px;
+	margin-top: 10px;
+	height: 600px; 
+	width: 600px; 
+  }
+  
+  #buttons{
+	position: relative;
+	height: 200px;
+	width: 384px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top:5px;
+	text-align: center;
+  }
+  
+ 
+  
+  #devBox{
+	border:1px solid black;
+	margin: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+  }
+  
+  #after{
+	content: "";
+	display: table;
+	clear: both;
+  }
+  </style>
+</head>
+
+<body>
+  <div id="progress-container">
+  <canvas id="score" width="220" height="50"></canvas>
+  <canvas id="progress" height="50" width="350"></div>
+  </div>
+  
+  <div id ="left-column">
+  <canvas id="canvas" height="384" width="384"></canvas>
+  <p id="buttons">
+	<input id="play" type="image" src="artwork/run.png" width="250" onclick="play()" />
+  </p>
+  <!--
+  <div id="devBox">
+    <h3> **DEV Box** Buttons might break Game...</h3>
+    <button id="show" onclick="showCode()">Show JavaScript</button>
+    <button id="next" onclick="next()">Skip Round</button>
+    <button id="dev" onclick="dev_round()">Dev Round</button>
+    <button id="clear" onclick="clearProgram()">Clear Program</button>
+    <button id="all_blocks" onclick="all_blocks()">All Blocks</button>
+  </div>
+  -->
+  </div>
+  
+  <div id="right-column">
+  <canvas id="instructions" height="100" width="600"></canvas>
+  <div id="blocklyDiv"></div>
+  </div>
+  
+  <div id="after"></div>
+
+  
+
+  <xml id="toolbox" style="display: none">
+    <block type ="start_bob"></block>
+    <block name = "Set" type = "set_down"></block>
+    <!--<category name="Logic" colour="%{BKY_LOGIC_HUE}">
+      <block type="controls_if"></block>
+      <block type="logic_compare"></block>
+      <block type="logic_operation"></block>
+      <block type="logic_negate"></block>
+      <block type="logic_boolean"></block>
+    </category>
+    <category name="Loops" colour="%{BKY_LOOPS_HUE}">
+      <block type="controls_repeat_ext">
+        <value name="TIMES">
+          <block type="math_number">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+      </block>
+      <block type="controls_whileUntil"></block>
+    </category>
+    <category name="Math" colour="%{BKY_MATH_HUE}">
+      <block type="math_number">
+        <field name="NUM">123</field>
+      </block>
+      <block type="math_arithmetic"></block>
+      <block type="math_single"></block>
+    </category>
+    <category name="Text" id="text_cat" colour="%{BKY_TEXTS_HUE}">
+      <block type="text"></block>
+      <block type="text_length"></block>
+    </category>-->
+  </xml>
+
+  <xml id="startBlocks" style="display: none">
+    <block type="start_bob"></block>
+  </xml>
+
+  
+  <script src="game.js"></script>
+</body>
+
+</html>
