@@ -1,0 +1,166 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage[utf8]{inputenc}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{HELPUS: How Entry Level Programmers Use Synchronization}
+\author{\IEEEauthorblockN{MIDN 1/C Matthew Friedel}
+\IEEEauthorblockA{\textit{Computer Engineering} \\
+\textit{United States Naval Academy}\\
+Annapolis, Maryland \\
+mfriedel2021@gmail.com}
+\and
+\IEEEauthorblockN{Asst. Prof. Christian DeLozier}
+\IEEEauthorblockA{\textit{Computer Engineering} \\
+\textit{United States Naval Academy}\\
+Annapolis, MD \\
+delozier@usna.edu}
+\and
+\IEEEauthorblockN{Asst. Prof. James Shey}
+\IEEEauthorblockA{\textit{Computer Engineering}\\
+\textit{United States Naval Academy}\\
+Annapolis, MD \\
+shey@usna.edu}
+}
+\maketitle
+\thispagestyle{plain}
+\pagestyle{plain}
+%----------------Abstract----------------
+\begin{abstract}
+Parallel programming is a powerful tool that can be used to increase performance in most applications, however the skillset required to program in parallel is unavailable to novice programmers. HELPUS is a visual programming language (VPL) that directly represents parallel programming concepts of traditional locks and execution dependencies. It is presented alongside a series of games that represent various parallel challenges faced in real-world applications. By working through the games using the VPL, novice programmers learn to recognize opportunities for adding parallelism in real-world applications.
+\end{abstract}
+
+%----------------Introduction----------------
+\section{Introduction}
+\subsection{Performance vs Productivity}
+Performance and productivity are the two main measurements of the usefulness of a programming language or tool. Performance is a measure of the processing power that it takes to run a specific calculation, while productivity is a measure of the effort that it takes to create a specific calculation. Typically, the performance or productivity of a programming language is measured in relation to another widely used language. An example that highlights the difference between these is "Simulate a Sine wave over one period in C++ and in Matlab." The resulting C++ program would use less processing power and execute faster than the Matlab program while still producing the same result, which indicates that C++ has a higher performance. The effort that it takes to create these two pieces of code, however, would be very different. Creating the C++ code would require writing several more lines and take longer, while the Matlab code would could be written in very few lines in a fraction of the time, which indicates that Matlab has a higher productivity.
+\par
+
+\subsection{Novice Programmers}
+Previous studies of parallel productivity involve studying post-grad students and programmers with extensive programming experience. This is because the majority of new parallel programming tools are aimed around increasing the performance and productivity of High Performance Computing (HPC) machines such as supercomputers. Over the last few decades, however, multi-core processors have become so widespread that almost every computer is a multi-core system. This has created a need for languages that have the ability to write parallel code that are accessible to novice programmers. Since the average novice programmer will not be writing parallel programs that take hours or days to execute, it is more important that the parallel languages they use have a more accessible syntax and are more focused around productivity than performance. This demographic has the most to gain by having access to a simpler parallel programming language. 
+\par
+One of the main benefits in studying novice programmers will be their use of intuitive thinking. In parallel-programming classes, students are taught basic patterns of parallel problems that make it easier to create solutions. Since novice programmers will not have been taught those series of patterns, the ease of a programming language's syntax to suggest possible solutions will be highlighted in the productivity measurement. Another benefit of studying novice programmers will be to highlight problems that might not appear in advanced programmers' code. Any problems that consistently appear in several novices' solutions will highlight what could be improved in future parallel programming languages and tools.
+\par
+One of the main challenges in studying novice programmers will be the variance of their skill. Due to the wide range of abilities that subjects can bring to the table, it is possible the a measured difference in productivity could actually be due to the difference in the programmers' ability to think about problems and not the difference in the use of the programming tools. Another challenge in studying novice programmers will be the significant increase in beginner struggles such as syntax errors.
+
+
+%---------------Method----------------
+\section{Productivity Measurement Method}
+\subsection{Hour of Code Format}
+The inspiration for the way this project measures productivity comes from \url{hourofcode.com}. This website teaches people the basics of programming using a visual programming language (VPL). At the start of a game, the user is presented with a programming challenge and blocks that each represent a line of code. The user must solve the challenge by manipulating the number and order of each of the blocks to create a program. At the beginning, the user is only given a small number of simple blocks. As they progress through the challenges, they are gradually given more blocks and more complicated problems. By the end of an hour, the user has been introduced to most of the major programming concepts that can be applied to any language.
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=\columnwidth]{Hour of Code.PNG}}
+\caption{Minecraft Hour of Code Game}
+\label{fig1}
+\end{figure}
+\par
+While Hour of Code is based around teaching basic programming to people who have no programming experience, This project is based around teaching the basics of \textit{parallel} programming to novice programmers. This project accomplishes this by creating an environment similar to Hour of Code for teaching parallel programming. It will also use a visual programming language that introduces blocks and problems, however the blocks will be representative of traditional locks and execution dependencies. The use of a VPL will mean that users will not be able to make syntax errors and the code will always be able to compile and run, which will reduce the amount of coding mistakes that novice programmers can make.
+
+\subsection{Blockly}
+Blockly is an open-source library from Google that adds a VPL editor to a website that allows the user to compile and run code on their client from a browser. As an open-source platform, it has the built-in ability to create custom blocks. This will be the main method of creating the VPL. It will also make it possible to passively measure productivity metrics such as how long it took the user to create a solution, how many attempts they went through, and how many extra lines of code they created and later deleted. 
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=\columnwidth]{Blockly.PNG}}
+\caption{Example of a Blockly editor}
+\label{fig2}
+\end{figure}
+
+\section{Fall Semester Progress}
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=\columnwidth]{HELPUS.png}}
+\label{fig3}
+\caption{HELPUS Game Layout}
+\end{figure}
+\subsection{HELPUS Layout}
+HELPUS is broken up into two sides. The left side presents the game board, and the right side contains the VPL as well as a description of the challenge the user must complete. The user is able to add and manipulate blocks in the coding window on the right side in order to solve the puzzle on the left. 
+\subsection{Game Layout}
+Users begin the first round with only one character on the board and limited blocks available. This allows the user to learn the mechanics of the game easier. As they progress, a second character is added to the game which the user controls at the same time. More blocks are also added to the game which allow the characters to interact with other features on the board. As users are being introduced to all of the VPL commands that they can use, rounds are presented that represent various parallel challenges. Figure 3 shows one of the intermediate rounds that represents a two-step pipeline problem. The two characters are on either side of a partition, but are able to pass things across a counter. The task that is presented requires the first character to complete a task which must be handed off to the second character to complete.
+\subsection{Relationship between Board Elements and Programming Concepts}
+The game board is a 2D grid which represents a 2D array of memory addresses. Each character on the board represents a different core within a processor that accesses the same memory. Programs that control both characters simultaneously represent two different threads that each execute on a different processor at the same time. Generally, both characters are able to move around the entire board, however sometimes the game will have partitions placed on the screen that characters cannot pass through. This represents memory allocations that are only available to a specific process or thread. The partitions, however, contain spaces that both characters can access, which represents shared memory allocations.
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=\columnwidth]{Blocks.png}}
+\caption{Blocks available to the User}
+\label{fig4}
+\end{figure}
+\subsection{Available Blocks}
+The HELPUS VPL contains four categories of blocks that are added to the Blockly API. The first set are the Start blocks. These blocks delineate the different threads that the user creates. A Start block is given to the user for each character. When the game is run, each character's program begins at the same time. The second set of blocks are the movement blocks. These allow the characters to move around the 2D board to access different items. The character's movement is analogous to a memory pointer moving to various memory locations. The third set of blocks are the Pick Up/Set Down blocks. These allow the characters to interact with the board. Each character's inventory represents localized memory. The pick up/set down blocks are the way in which the character either simultaneously locks a specific item and moves it to their localized memory or unlocks a specific item and moves it to shared memory. These directly represent traditional memory lock and release commands. The fourth set of blocks are the Sleep/Wake Up blocks. If the user wants a character to stop at a certain point and wait for the other character to finish a task, the user inserts a Sleep command at the stopping point and a Wake Up command at the point in the other user's code that they want to wait to be completed.  These blocks allow the user to explicitly state any dependency that exists in their code.
+
+\section{Future Work}
+\subsection{Round Creation}
+The next step in completing the HELPUS VPL is to create more game rounds. Currently, the game only has eight  designed rounds that represent single-process, embarrassingly parallel, and two-step pipeline problems And introduce all of the VPL Blocks. Rounds should be created to represent further parallel patterns, such as replicable tasks and event-based coordination. Another other feature that could be added are heterogeneous computing. This would be represented by giving each of the characters a specific specialty that only they are able to complete. Another feature that could be added is forcing errors. Currently the language is deterministic, meaning that the exact same result will occur every time the program is run. The first step in forcing errors would be to add randomization of when each of the characters start and how long each command takes. Next, the ability for the VPL to detect potential conflicts would need to be added and used to decide when each of the characters should begin to force that conflict.
+\subsection{Fielding}
+Initially, the game will be fielded to other students and professors in the ECE department on an individual basis. This will allow a game developer to monitor their progress in-person to understand what aspects of the VPL need to be tweaked as well as real-time feedback from the players of the game. Following these initial tests and subsequent revisions, the game will be fielded to students who are currently in, or have recently completed, the SY110 and EC310 courses. This group will encompass students who have had at least an introduction to programming, but will still be novice programmers and will have not encountered parallel programming.
+%--------Example Table--------
+%\begin{table}[htbp]
+%\caption{Table Type Styles}
+%\begin{center}
+%\begin{tabular}{|c|c|c|c|}
+%\hline
+%\textbf{Table}&\multicolumn{3}{|c|}{\textbf{Table Column Head}} \\
+%\cline{2-4} 
+%\textbf{Head} & \textbf{\textit{Table column subhead}}& \textbf{\textit{Subhead}}& %\textbf{\textit{Subhead}} \\
+%\hline
+%copy& More table copy$^{\mathrm{a}}$& &  \\
+%\hline
+%\multicolumn{4}{l}{$^{\mathrm{a}}$Sample of a Table footnote.}
+%\end{tabular}
+%\label{tab1}
+%\end{center}
+%\end{table}
+
+%--------Example Figure--------
+%\begin{figure}[htbp]
+%\centerline{\includegraphics[width=\columnwidth]{fig1.png}}
+%\caption{Example of a figure caption.}
+%\label{fig}
+%\end{figure}
+
+%--------Example Equation--------
+%\begin{equation}
+%Re[Y_{Before Stub}^{'}]&=Y_{Load}^{'}&=1
+%\end{equation}
+%\begin{equation}
+%Im[Y_{Before Stub}^{'}]&=Y_{stub}^{'}
+%\end{equation}
+
+\section*{Acknowledgement}
+I would like to acknowledge Asst. Prof. Christian DeLozier and Asst. Prof. James Shey for their help with this project.
+
+\begin{thebibliography}{00}
+\bibitem{b1} C. DeLozier, B. Lucia, A. Eizenberg, J. Devietti.  \textit{SOFRITAS: Serializable Ordering-Free REgions for Increasing Thread Atomicity Scalably}, University of Pennsylvania, March 2018
+\bibitem{b2} E. Pasternak, R. Fenichel, A. Marshall. \textit{Tips ofr Creating a Block Language with Blockly}, Google, 2017
+\bibitem{b3} V. Pankratius, A. Adl-Tabatabai \textit{A Study of Transactional Memory vs. Locks in Practice}
+\bibitem{b4} L. Hochstein, V. Basili, M. Zelkowitz, J. Hollingsworth, J. Carver \textit{Combining self-reported and automatic data to improve programming effort measurement}, University of Maryland, 2005
+\bibitem{b5} L. Hochstein, J. Carver, F. Shull, S. Asgari. \textit{Parallel Programmer Productivity: A Case Study of Novice Parallel Programmers}, University of Maryland, 2005
+%--------example references--------
+%\bibitem{book} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
+%\bibitem{b2} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.
+%\bibitem{b3} I. S. Jacobs and C. P. Bean, ``Fine particles, thin films and exchange anisotropy,'' in Magnetism, vol. III, G. T. Rado and H. Suhl, Eds. New York: Academic, 1963, pp. 271--350.
+%\bibitem{b4} K. Elissa, ``Title of paper if known,'' unpublished.
+%\bibitem{b5} R. Nicole, ``Title of paper with only first word capitalized,'' J. Name Stand. Abbrev., in press.
+%\bibitem{b6} Y. Yorozu, M. Hirano, K. Oka, and Y. Tagawa, ``Electron spectroscopy studies on magneto-optical media and plastic substrate interface,'' IEEE Transl. J. Magn. Japan, vol. 2, pp. 740--741, August 1987 [Digests 9th Annual Conf. Magnetics Japan, p. 301, 1982].
+%\bibitem{b7} M. Young, The Technical Writer's Handbook. Mill Valley, CA: University Science, 1989.
+\end{thebibliography}
+
+\section{Appendix}
+The HELPUS game can be accessed at this website:\\
+\url{helpususna.altervista.org}
+\end{document}
